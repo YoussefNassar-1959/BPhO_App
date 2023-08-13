@@ -52,6 +52,9 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  assets:
+    - assets/kepler.png
+  #   - images/a_dot_ham.jpeg
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
@@ -64,9 +67,7 @@ flutter_icons:
   #image_path: "assets/app icon.png"
 
   # To add assets to your application, add an assets section, like this:
-  assets:
-    - assets/kepler.png
-  #   - images/a_dot_ham.jpeg
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

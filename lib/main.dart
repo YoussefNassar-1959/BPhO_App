@@ -99,19 +99,22 @@ class ProjectListScreen extends StatelessWidget {
                   ),
                 );
               },
-              child: ListTile(
-                title: Text(
-                  projects[index].title,
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                subtitle: Text(projects[index].description),
-                leading: ClipRRect(
-                  borderRadius: BorderRadius.circular(10.0),
-                  child: Image.asset(
-                    projects[index].imagePath,
-                    width: 100,
-                    height: 100,
-                    fit: BoxFit.cover,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0), // Add vertical padding
+                child: ListTile(
+                  title: Text(
+                    projects[index].title,
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: Text(projects[index].description),
+                  leading: ClipRRect(
+                    borderRadius: BorderRadius.circular(10.0),
+                    child: Image.asset(
+                      projects[index].imagePath,
+                      width: 100,
+                      height: 100,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
@@ -144,7 +147,7 @@ class ProjectDetailsScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15.0),
                 child: Image.asset(
                   project.imagePath,
-                  width: 350,
+                  width: 380,
                   height: 250,
                   fit: BoxFit.cover,
                 ),
