@@ -37,7 +37,7 @@ class ProjectListScreen extends StatelessWidget {
     Project(
       title: "Kepler's Laws Verification",
       description: "Verifying Kepler's laws using computational simulations.",
-      imagePath: 'assets/keplers_laws.png', // Place your image in the assets folder
+      imagePath: 'assets/kepler.png', // Place your image in the assets folder
     ),
     Project(
       title: "Elliptical Orbits of Inner Planets",
@@ -86,29 +86,35 @@ class ProjectListScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(15.0),
             ),
             margin: EdgeInsets.all(16.0),
-            child: ListTile(
-              title: Text(
-                projects[index].title,
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              subtitle: Text(projects[index].description),
-              leading: ClipRRect(
-                borderRadius: BorderRadius.circular(10.0),
-                child: Image.asset(
-                  projects[index].imagePath,
-                  width: 100,
-                  height: 100,
-                  fit: BoxFit.cover,
-                ),
-              ),
+            child: InkWell( // Wrap the Card with InkWell for tap interaction
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => ProjectDetailsScreen(project: projects[index]),
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) =>
+                        FadeTransition(
+                          opacity: animation,
+                          child: ProjectDetailsScreen(project: projects[index]),
+                        ),
                   ),
                 );
               },
+              child: ListTile(
+                title: Text(
+                  projects[index].title,
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                subtitle: Text(projects[index].description),
+                leading: ClipRRect(
+                  borderRadius: BorderRadius.circular(10.0),
+                  child: Image.asset(
+                    projects[index].imagePath,
+                    width: 100,
+                    height: 100,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
             ),
           );
         },
@@ -116,6 +122,7 @@ class ProjectListScreen extends StatelessWidget {
     );
   }
 }
+
 
 class ProjectDetailsScreen extends StatelessWidget {
   final Project project;
